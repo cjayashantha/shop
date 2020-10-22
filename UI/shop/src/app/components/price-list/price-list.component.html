@@ -1,0 +1,41 @@
+<div class="row my-3">
+    <div class="col-md-4">
+        <select class="form-control" [(ngModel)]="productCode">
+            <option value="penguinear">Penguin-ears</option>
+            <option value="horseshoe">Horseshoe</option>
+          </select>
+    </div>
+    <div class="col-md-2">
+        <select class="form-control" [(ngModel)]="numberOfUnits" [(ngModel)]="numberOfUnits">
+            <option *ngFor="let units of unitsUpTo; let i = index" [value]="i + 1"> {{ i + 1}}</option>
+          </select>
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-primary" (click)="onClickGetPriceList()">Request prices</button>
+    </div>
+
+    
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped  table-bordered">
+            <thead>
+                <td>Units</td>
+                <td>Cartoons</td>
+                <td>Single Units</td>
+                <td>Price</td>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of priceList; let i = index">
+                    <td> {{ item.totalUnits }}</td>
+                    <td> {{ item.cartoons }}</td>
+                    <td> {{ item.singleUnits }}</td>
+                    <td> {{ item.totalPrice | currency:'LKR '}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+    </div>
+</div>

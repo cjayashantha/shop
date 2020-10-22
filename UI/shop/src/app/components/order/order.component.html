@@ -1,0 +1,46 @@
+<div class="row my-3">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label >Product</label>
+            <select class="form-control" [(ngModel)]="productCode">
+                <option value="penguinear">Penguin-ears</option>
+                <option value="horseshoe">Horseshoe</option>
+            </select>
+          </div>
+    </div>
+</div>
+<div class="row my-3">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label >Units</label>
+            <input type="number"  class="form-control"  [(ngModel)]="numberOfUnits">
+          </div>
+    </div>
+</div>
+<div class="row my-3">
+    <div class="col-md-4">
+        <button class="btn btn-primary" (click)="onClickGetPrice()"> Request price </button>
+    </div>
+</div>
+
+
+<div class="row my-3" *ngIf="price != null">
+    <div class="col-md-4">
+        <table class="table"> 
+            <tbody>
+                <tr>
+                    <td>Cartoons</td>
+                    <td>{{ price.cartoons}}</td>
+                </tr>
+                <tr>
+                    <td>Single units</td>
+                    <td>{{ price.singleUnits}}</td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td>{{ price.totalPrice | currency:'LKR '}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
